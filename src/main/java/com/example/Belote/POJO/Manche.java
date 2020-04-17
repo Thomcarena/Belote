@@ -16,7 +16,7 @@ public class Manche {
     int scoreEq1;
     int scoreEq2;
     String Atout;
-    @OneToMany(mappedBy="manche")
+    @OneToMany(mappedBy="manche", cascade = CascadeType.REMOVE)
     private Set<Pli> plis;
     @ManyToOne
     private Partie partie;

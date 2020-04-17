@@ -37,12 +37,16 @@ public class JoueurServiceImpl implements JoueurService {
     }
 
     @Override
-    public Joueur updateJoueur(String pseudo, String mdp, int age, String sexe, String ville) { //PUT pour la modification de compte
+    public Joueur updateJoueur(String pseudo, String mdp, int age, String sexe, String ville, int nbPartie, int nbVictoire, long score) { //PUT pour la modification de compte
         Joueur j = joueurRepository.findJoueurByPseudoJ(pseudo);
         j.setMdpJ(mdp);
         j.setAgeJ(age);
         j.setSexeJ(sexe);
         j.setVilleJ(ville);
+        j.setNbPartieJ(nbPartie);
+        j.setNbVictoireJ(nbVictoire);
+        j.setNbMoyenneJ(j.getNbVictoireJ()/j.getNbPartieJ());
+        j.ajoutScoreMoyenJoueur(score);
         return joueurRepository.save(j);
     }
 
@@ -51,4 +55,5 @@ public class JoueurServiceImpl implements JoueurService {
         Joueur j = joueurRepository.findJoueurByPseudoJ(pseudo);
         joueurRepository.delete(j);
     }
+
 }

@@ -143,4 +143,9 @@ public class Joueur {
     public void setScoreMoyenJ(long scoreMoyenJ) {
         this.scoreMoyenJ = scoreMoyenJ;
     }
+
+    public void ajoutScoreMoyenJoueur(long score){
+        long newScore = (this.scoreMoyenJ * this.nbPartieJ + score ) / (this.nbPartieJ + 1);
+        this.scoreMoyenJ = newScore;
+    }
 }

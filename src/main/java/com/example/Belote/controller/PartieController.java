@@ -29,6 +29,6 @@ public class PartieController {
 
     @DeleteMapping(value ="/deletePartie")
     public void effacerPartie(){
-        partieService.deletePartie(2);
+        partieService.deletePartie(1);
     }
 }

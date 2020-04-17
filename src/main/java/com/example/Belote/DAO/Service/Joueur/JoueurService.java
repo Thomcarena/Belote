@@ -16,6 +16,6 @@ import com.example.Belote.POJO.Joueur;
 public interface JoueurService {
     Joueur createJoueur(String pseudo, String mdp, int age, String sexe, String ville);
     Joueur readJoueur(String pseudo, String mdp);
-    Joueur updateJoueur(String pseudo, String mdp, int age, String sexe, String ville);
+    Joueur updateJoueur(String pseudo, String mdp, int age, String sexe, String ville, int nbPartie, int nbVictoire, long score);
     void deleteJoueur(String pseudo);
 }

@@ -21,7 +21,7 @@ public class Partie {
     private List<Joueur> joueurs;
     int scoreEq1Final;
     int scoreEq2Final;
-    @OneToMany(mappedBy="partie")
+    @OneToMany(mappedBy="partie", cascade = CascadeType.REMOVE)
     private Set<Manche> manches;
 
 

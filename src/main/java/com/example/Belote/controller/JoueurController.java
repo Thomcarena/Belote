@@ -36,7 +36,7 @@ public class JoueurController {
 
     @PutMapping(value ="/updateJoueur")
     public Joueur majJoueur(){
-        return joueurService.updateJoueur("VassDK", "gold", 24, "H", "Pau");
+        return joueurService.updateJoueur("VassDK", "gold", 24, "H", "Pau", 0, 0, 0);
     }
 
     @DeleteMapping(value ="/deleteJoueur")
