@@ -5,9 +5,10 @@ import com.example.Belote.DAO.Service.Pli.PliService;
 import com.example.Belote.POJO.Partie;
 import com.example.Belote.POJO.Pli;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class PliController {
 
     @Autowired

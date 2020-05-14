@@ -8,16 +8,29 @@ package com.example.Belote.controller;
 import com.example.Belote.DAO.Service.Joueur.JoueurService;
 import com.example.Belote.POJO.Joueur;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 /**
  *
  * @author thoma
  */
-@RestController
+@Controller
 public class JoueurController {
     @Autowired
     private JoueurService joueurService;
+
+    // Page du formulaire de la création d'un joueur
+    @RequestMapping(value = {"/formCreateJoueur"}, method = RequestMethod.GET)
+    public String register(Model model){
+        model.addAttribute("joueur",new Joueur());
+        return ("creerJoueur");
+    }
 
    /* @GetMapping(value = "/getJoueur")
     public List<Joueur> vueJoueur(){
@@ -25,8 +38,15 @@ public class JoueurController {
     }*/
 
     @PostMapping(value ="/createJoueur")
-    public Joueur creationJoueur(){
-        return joueurService.createJoueur("max", "silver", 24, "F", "Pau");
+    public Joueur creationJoueur(HttpServletRequest request, @Valid Joueur joueur){
+        String pseudo = request.getParameter("pseudo");
+        String mdp = request.getParameter("mdp");
+        int age = Integer.parseInt(request.getParameter("age"));
+        String sexe = request.getParameter("sexe");
+        String ville = request.getParameter("ville");
+        System.out.println(pseudo+" "+mdp+" "+age+" "+sexe+" "+ville);
+        return joueurService.createJoueur(pseudo, mdp, age, sexe, ville);
+       // return joueurService.createJoueur("max", "silver", 24, "F", "Pau");
     }
 
     @GetMapping(value ="/readJoueur")
