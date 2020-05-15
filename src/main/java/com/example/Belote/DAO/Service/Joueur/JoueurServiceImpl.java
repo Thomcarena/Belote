@@ -51,6 +51,16 @@ public class JoueurServiceImpl implements JoueurService {
     }
 
     @Override
+    public Joueur updateJoueur(String pseudo, String mdp, int age, String sexe, String ville) { //PUT pour la modification de compte
+        Joueur j = joueurRepository.findJoueurByPseudoJ(pseudo);
+        j.setMdpJ(mdp);
+        j.setAgeJ(age);
+        j.setSexeJ(sexe);
+        j.setVilleJ(ville);
+        return joueurRepository.save(j);
+    }
+
+    @Override
     public void deleteJoueur(String pseudo) { //DELETE pour supprimer un compte
         Joueur j = joueurRepository.findJoueurByPseudoJ(pseudo);
         joueurRepository.delete(j);

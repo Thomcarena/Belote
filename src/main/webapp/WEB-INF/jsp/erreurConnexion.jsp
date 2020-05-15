@@ -1,24 +1,20 @@
 <%--
   Created by IntelliJ IDEA.
   User: thoma
-  Date: 14/05/2020
-  Time: 18:13
+  Date: 15/05/2020
+  Time: 16:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Accueil Belote</title>
+    <title>Erreur</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <p>Bienvenue sur le jeu de Belote en ligne !</p>
-    <div class="">
-        <a href="/formCreateJoueur">Inscription</a>
-    </div>
-
-    <div class="">
-        <a href="/formConnexionJoueur">Se connecter</a>
-    </div>
+<p>Erreur, votre identifiant et/ou mot de passe est incorrect.</p>
+<div class="">
+    <a href="/formConnexionJoueur">Réessayer</a>
+</div>
 </body>
 </html>

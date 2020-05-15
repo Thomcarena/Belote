@@ -6,6 +6,7 @@
 <head><title>Création Compte</title>
 </head>
 <body>
+<%@include file="navBar.jsp"%>
     <div class="container"><h1>Bienvenue dans la création d'un compte Joueur</h1></div>
     <form action="/createJoueur" method="post" class="form-example">
         <div class="form-example">
