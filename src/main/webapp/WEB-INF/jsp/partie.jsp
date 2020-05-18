@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Belote - Partie</title>
-    <link rel="stylesheet" type="text/css" href="../../css/partie.css" />
+    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/css/partie.css" />
 </head>
 <body>
 <p>Coucou le jeu</p>
