@@ -32,6 +32,10 @@ public class PartieController {
         return ("partie");
     }
 
+    @GetMapping(value ="/distribuer")
+    public void distribuer(){
+        System.out.println("cc");
+    }
 
     @PostMapping(value ="/createPartie")
     public Partie creationPartie(){

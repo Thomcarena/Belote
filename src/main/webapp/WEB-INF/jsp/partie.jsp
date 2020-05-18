@@ -9,10 +9,14 @@
 <html>
 <head>
     <title>Belote - Partie</title>
+    <script src="<%request.getContextPath();%>/src/main/js/partie.js"></script>
 </head>
-<body background="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/tapis.jpg">
-<style>body{background-repeat : no-repeat;background-attachment: fixed;background-position: center center;}</style>
-<p>Coucou le jeu</p>
+<body>
+<style>body{background-color:steelblue;}</style>
+<p>Sympa le background</p>
+
+<button class="btn btn-outline-primary" type="button" onclick="distribuer();">Distribuer les cartes</button>
+
 
 </body>
 </html>
