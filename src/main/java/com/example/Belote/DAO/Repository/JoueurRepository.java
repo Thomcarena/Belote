@@ -10,6 +10,8 @@ import com.example.Belote.POJO.Joueur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  *
  * @author thomas
@@ -20,5 +22,6 @@ public interface JoueurRepository extends JpaRepository<Joueur, Integer>{
 
     Joueur findJoueurByPseudoJAndMdpJ(String pseudo, String mdp);
     Joueur findJoueurByPseudoJ(String pseudo);
-
+    @Override
+    List<Joueur> findAll();
 }

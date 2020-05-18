@@ -9,9 +9,12 @@
 <html>
 <head>
     <title>Belote - Accueil</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <%@include file="navBar.jsp"%>
 <h1>Bienvenue sur la Belote de Vassili Maxime et Thomas</h1>
+<button class="btn btn-outline-primary" type="button"><a href="/creationPartie">Créer une partie</a></button>
+
 </body>
 </html>

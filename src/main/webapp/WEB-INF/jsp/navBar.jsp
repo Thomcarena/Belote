@@ -22,6 +22,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/formModifierJoueur">Mon Compte : <%= session.getAttribute("pseudo")%></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/statistiques">Statistiques</a>
+            </li>
         </ul>
     </nav>
 

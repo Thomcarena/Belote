@@ -10,6 +10,8 @@ import com.example.Belote.POJO.Joueur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  *
  * @author thoma
@@ -34,6 +36,11 @@ public class JoueurServiceImpl implements JoueurService {
     @Override
     public Joueur readJoueur(String pseudo, String mdp) { //GET cette fonction permet de vérifier les id et mdp pour se connecter
         return joueurRepository.findJoueurByPseudoJAndMdpJ(pseudo, mdp);
+    }
+
+    @Override
+    public List<Joueur> getAllJoueurs() { //GET cette fonction permet de vérifier les id et mdp pour se connecter
+        return joueurRepository.findAll();
     }
 
     @Override

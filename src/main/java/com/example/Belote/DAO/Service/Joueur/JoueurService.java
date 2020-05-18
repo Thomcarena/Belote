@@ -7,6 +7,8 @@ package com.example.Belote.DAO.Service.Joueur;
 
 import com.example.Belote.POJO.Joueur;
 
+import java.util.List;
+
 /**
  *
  * @author Vassili & Thomas
@@ -19,5 +21,6 @@ public interface JoueurService {
     Joueur updateJoueur(String pseudo, String mdp, int age, String sexe, String ville, int nbPartie, int nbVictoire, long score);
     Joueur updateJoueur(String pseudo,String mdp, int age, String sexe, String ville);
     void deleteJoueur(String pseudo);
+    List<Joueur> getAllJoueurs();
 
 }
