@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 </head>
-<body>
+<body id="fond">
 <%@include file="navBar.jsp"%>
 <h1> Statistiques des joueurs</h1>
 <table class="table table-hover">
