@@ -9,9 +9,9 @@
 <html>
 <head>
     <title>Belote - Partie</title>
-    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/css/partie.css" />
 </head>
-<body>
+<body background="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/tapis.jpg">
+<style>body{background-repeat : no-repeat;background-attachment: fixed;background-position: center center;}</style>
 <p>Coucou le jeu</p>
 
 </body>
