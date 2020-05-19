@@ -16,25 +16,125 @@
     var couleur = ["S", "H", "D", "C"];
     var valeur = ["A", "7", "8", "9", "10", "J", "Q", "K"];
     var premiereDistribution = true;
+    var atout;
+    var valeurJouee;
+    var couleurJouee;
+    var pointJouee;
+    var nbTours=0;
+
+
 
     class joueur{
         cartes=[];
         nom;
+        premier=false;
+
+        joue(){
+            var aJoue = false;
+            var plusFort = false;
+            var positionMeilleureCarte=0;
+            if(this.premier){
+                var r=Math.floor(Math.random() * Math.floor(8))
+                valeurJouee= this.cartes[r].Valeur;
+                couleurJouee= this.cartes[r].Couleur;
+                if(couleurJouee == atout){
+                    pointJouee = this.cartes[r].PointsAtout;
+                }
+                else{
+                    pointJouee = this.cartes[r].Points;
+                }
+                console.log(valeurJouee+" "+couleurJouee);
+            }
+            var meilleureCarte = null;
+            for(var j=0; j<this.cartes.length; j++){
+                if(this.cartes[j].Jouable){
+                    meilleureCarte=this.cartes[j];
+                    break;
+                }
+            }
+
+            for (var i in this.cartes){
+                if(this.cartes[i].Jouable){
+                    console.log(i);
+                    if(couleurJouee == atout){ //Si l'atout est demandé
+                        if(this.cartes[i].Couleur == couleurJouee){ //Si le joueur a de l'atout
+                            console.log("J'ai de l'atout");
+                            if(this.cartes[i].PointsAtout > pointJouee){ //Si le joueur a une meilleure carte à l'atout
+                                if(meilleureCarte.Couleur==atout){
+                                    if(this.cartes[i].PointsAtout>=meilleureCarte.PointsAtout){ //Si le joueur a une meilleure carte
+                                        meilleureCarte= this.cartes[i];
+                                        console.log("atout plus fort");
+                                        console.log("Meilleure carte :"+meilleureCarte.Valeur+" "+meilleureCarte.Couleur);
+                                        aJoue=true;
+                                        plusFort=true;
+                                        positionMeilleureCarte = i;
+                                    }
+                                }
+                                else{ //Mon atout est plus fort que mes autres cartes
+                                    meilleureCarte= this.cartes[i];
+                                    console.log("atout plus fort");
+                                    console.log("Meilleure carte :"+meilleureCarte.Valeur+" "+meilleureCarte.Couleur);
+                                    aJoue=true;
+                                    plusFort=true;
+                                    positionMeilleureCarte = i;
+                                }
+                            }
+                            else{ //S'il a une carte inférieure à celle jouée
+                                if(meilleureCarte.Couleur==atout) {
+                                    if(!plusFort){
+                                        if (this.cartes[i].PointsAtout <= meilleureCarte.PointsAtout) { //Si le joueur a une meilleure carte
+                                            meilleureCarte = this.cartes[i];
+                                            console.log("atout moins fort");
+                                            console.log("Meilleure carte :" + meilleureCarte.Valeur + " " + meilleureCarte.Couleur);
+                                            aJoue = true;
+                                            positionMeilleureCarte = i;
+                                        }
+                                    }
+                                }
+                                else{
+                                    meilleureCarte = this.cartes[i];
+                                    console.log("atout moins fort");
+                                    console.log("Meilleure carte :" + meilleureCarte.Valeur + " " + meilleureCarte.Couleur);
+                                    aJoue = true;
+                                    positionMeilleureCarte = i;
+                                }
+                            }
+                        }
+                        else{// S'il a pas d'atout
+                            console.log("J'ai pas d'atout");
+                            if(this.cartes[i].Points<meilleureCarte.Points && !aJoue){ //carte la plus faible si il a pas d'atout
+                                meilleureCarte= this.cartes[i];
+                                console.log("carte la plus faible");
+                                console.log("Meilleure carte :"+meilleureCarte.Valeur+" "+meilleureCarte.Couleur);
+                                positionMeilleureCarte = i;
+                            }
+                        }
+                    }
+                }
+            }
+            console.log("Meilleure carte que je vais jouer :"+meilleureCarte.Valeur+" "+meilleureCarte.Couleur);
+            addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+meilleureCarte.Valeur+meilleureCarte.Couleur+".png",this.nom+"joue");
+            //console.log(this.nom+"c"+positionMeilleureCarte-nbTours);
+            positionMeilleureCarte++;
+            addCards("",this.nom+"c"+String(positionMeilleureCarte));
+            annulerCarte(this,positionMeilleureCarte-1);
+        }
     }
     var j1 = new joueur();
     var j2 = new joueur();
     var j3 = new joueur();
     var j4 = new joueur();
 
+    j1.premier=true;
     j1.nom="J1";
     j2.nom="J2";
     j3.nom="J3";
     j4.nom="J4";
 
     function distribuer() {
-
-
-
+        document.getElementById("distribuerButton").style.visibility="hidden"; //Cache le bouton distribuer
+        document.getElementById("prendreB").style.visibility="visible"; //Montre le bouton prendre atout
+        document.getElementById("pasPrendreB").style.visibility="visible"; //Montre le bouton ne pas prendre atout
 
         var joueurDistribue = 1;
 
@@ -42,40 +142,6 @@
         deck = getDeck();
         shuffle(deck);
 
-        //Remplissage de la main du joueur 1
-       /* if(premiereDistribution){
-            for (var i = 0; i<5; i++) {
-                j1.cartes.push(deck[i]);
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J1c" + String(i + 1));
-
-            }
-        }
-        else{
-            for (var i = 5; i<8; i++) {
-                j1.cartes.push(deck[i]);
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J1c" + String(i + 1));
-            }
-        }
-
-        //Remplissage de la main du joueur 2
-        for (var i = 8; i<16; i++){
-            j2.cartes.push(deck[i]);
-            addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i+1-8));
-        }
-        //Remplissage de la main du joueur 3
-        for (var i = 16; i<24; i++){
-            j3.cartes.push(deck[i]);
-            addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i+1-16));
-        }
-        //Remplissage de la main du joueur 4
-        for (var i = 24; i<32; i++){
-            j4.cartes.push(deck[i]);
-            addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i+1-24));
-        }
-
-        var premierJoueur = Math.floor(Math.random() * Math.floor(4)) + 1;
-
-        console.log(j1.cartes[1].Valeur+j1.cartes[1].Couleur);*/
 
        for(var i=0; i<deck.length; i++){
            if(premiereDistribution) {
@@ -103,12 +169,42 @@
     function getDeck()
     {
         var deck = new Array();
+        var points = 0;
+        var pointsAtout = 0;
 
         for(var i = 0; i < couleur.length; i++)
         {
             for(var x = 0; x < valeur.length; x++)
             {
-                var card = {Valeur: valeur[x], Couleur: couleur[i]};
+                if(valeur[x]==="A") {
+                    points = 11;
+                    pointsAtout = 11;
+                }
+                if(valeur[x]==="K") {
+                    points = 4;
+                    pointsAtout = 4;
+                }
+                if(valeur[x]==="Q") {
+                    points = 3;
+                    pointsAtout = 3;
+                }
+                if(valeur[x]==="J") {
+                    points = 2;
+                    pointsAtout = 20;
+                }
+                if(valeur[x]==="10") {
+                    points = 10;
+                    pointsAtout = 10;
+                }
+                if(valeur[x]==="9") {
+                    points = 0;
+                    pointsAtout = 14;
+                }
+                if(valeur[x]==="8" || valeur[x]==="7") {
+                    points = 0;
+                    pointsAtout = 0;
+                }
+                var card = {Valeur: valeur[x], Couleur: couleur[i], Points : points, PointsAtout : pointsAtout, Jouable : true };
                 deck.push(card);
             }
         }
@@ -137,6 +233,11 @@
     }
 
     function prendreAtout(){
+        document.getElementById("prendreB").style.visibility="hidden"; //Cache le bouton prendre atout
+        document.getElementById("pasPrendreB").style.visibility="hidden"; //Cache le bouton ne pas prendre atout
+        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
+        atout=deck[20].Couleur; // Couleur de l'atout
+        console.log(atout);
         var joueur = j1;
         joueur.cartes.push(deck[20]);
         addCards("","J1joue");
@@ -162,6 +263,10 @@
     }
 
     function prendrePasAtout(){
+        document.getElementById("prendreB").style.visibility="hidden"; //Cache le bouton prendre atout
+        document.getElementById("pasPrendreB").style.visibility="hidden"; //Cache le bouton ne pas prendre atout
+        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout");
+
         var nombre = Math.floor(Math.random() * Math.floor(3))+2;
         addCards("","J1joue");
         addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
@@ -230,6 +335,54 @@
         }
     }
 
+    function jouerCarte(carte){
+        var nbCarte = carte.substring(3,4);
+        //j1.joue();
+        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+j1.cartes[nbCarte-1].Valeur+j1.cartes[nbCarte-1].Couleur+".png","J1joue");
+        addCards("",carte);
+        if(j1.premier){
+            valeurJouee = j1.cartes[nbCarte-1].Valeur;
+            couleurJouee = j1.cartes[nbCarte-1].Couleur;
+            if(couleurJouee == atout){
+                pointJouee = j1.cartes[nbCarte-1].PointsAtout;
+            }
+            else{
+                pointJouee = j1.cartes[nbCarte-1].Points;
+            }
+            console.log(valeurJouee+" "+couleurJouee);
+        }
+        j2.joue();
+        j3.joue();
+        j4.joue();
+        nbTours++;
+    }
+
+    function annulerCarte(joueur, positionCarte){
+        joueur.cartes[positionCarte].Jouable = false;
+    }
+
+    function joueurSuivant(){
+        if(j1.premier){
+            j1.premier=false;
+            j2.premier=true;
+        }
+        if(j2.premier){
+            j2.premier=false;
+            j3.premier=true;
+        }
+        if(j3.premier){
+            j3.premier=false;
+            j4.premier=true;
+        }
+        if(j4.premier){
+            j4.premier=false;
+            j1.premier=true;
+        }
+
+    }
+
+
+
 </script>
 <!-- CSS-->
 <style>body{background-color:steelblue;}</style>
@@ -296,6 +449,7 @@
         padding:12px 37px;
         text-decoration:none;
         text-shadow:0px 1px 0px #283966;
+        visibility: hidden;
     }
     .styleBouton:hover {
         background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
@@ -305,19 +459,27 @@
         position:relative;
         top:1px;
     }
+    .cardJ1:hover{
+        -webkit-transform:scale(1.25);
+        -moz-transform:scale(1.25);
+        -ms-transform:scale(1.25);
+        -o-transform:scale(1.25);
+        transform:scale(1.25);
+    }
+    .cardJ1{height:12%; width:4%;}
 
 
 </style>
 <p>Sympa le background</p>
 
-<img src="" class="card" id="J1c1">
-<img src="" class="card" id="J1c2">
-<img src="" class="card" id="J1c3">
-<img src="" class="card" id="J1c4">
-<img src="" class="card" id="J1c5">
-<img src="" class="card" id="J1c6">
-<img src="" class="card" id="J1c7">
-<img src="" class="card" id="J1c8">
+<img src="" class="cardJ1" id="J1c1" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c2" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c3" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c4" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c5" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c6" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c7" onclick="jouerCarte(this.id)">
+<img src="" class="cardJ1" id="J1c8" onclick="jouerCarte(this.id)">
 
 <img src="" class="card" id="J2c1">
 <img src="" class="card" id="J2c2">
@@ -351,15 +513,13 @@
 <img src="" class="card" id="J3joue">
 <img src="" class="card" id="J4joue">
 
-<button class="btn btn-outline-primary" type="button" onclick="distribuer();">Distribuer les cartes</button>
+<button class="btn btn-outline-primary" id="distribuerButton" type="button" onclick="distribuer();">Distribuer les cartes</button>
 
 <img src="gray_back.png" class="card" id="atout">
 <p id="texteAtout">ATOUT</p>
 
-<button class="styleBouton" id="prendreB" type="button" onclick="prendreAtout();">Prendre atout</button>
-<button class="styleBouton" id="pasPrendreB" type="button"onclick="prendrePasAtout();">Ne pas prendre atout</button>
-<!--<button class="btn btn-outline-primary" type="button" onclick="prendreAtout();">Prendre Atout</button>
-<button class="btn btn-outline-primary" type="button" onclick="prendrePasAtout();">Prendre Atout</button>-->
+<button class="styleBouton"  id="prendreB" type="button" hidden onclick="prendreAtout();">Prendre atout</button>
+<button class="styleBouton"  id="pasPrendreB" type="button"onclick="prendrePasAtout();">Ne pas prendre atout</button>
 
 
 </body>
