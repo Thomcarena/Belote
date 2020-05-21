@@ -38,6 +38,9 @@
         carteJouee;
         points=0;
         distribue=false;
+        belote=false;
+        rebelote=false;
+        beloteRebelote=false;
 
         joue(){
             var aJoue = false;
@@ -61,6 +64,20 @@
                     meilleureCarte=this.cartes[j];
                     positionMeilleureCarte=j;
                     break;
+                }
+            }
+
+            //Vérifie si un joueur à belote et rebelote (Dame et roi d'atout)
+            for(var j=0; j<this.cartes.length; j++){
+                if(this.cartes[j].Valeur == "Q" && this.cartes[j].Couleur == atout){
+                    this.belote=true;
+                }
+                else if(this.cartes[j].Valeur == "K" && this.cartes[j].Couleur == atout){
+                    this.rebelote=true;
+                }
+                if(this.belote && this.rebelote){
+                    this.beloteRebelote=true;
+                    window.alert("J'ai belote et rebelote");
                 }
             }
 
@@ -156,6 +173,20 @@
                     }
                 }
             }
+            //Cas de la belote rebelote
+            if(this.beloteRebelote){
+                if((meilleureCarte.Valeur == "Q" || meilleureCarte.Valeur == "K") && meilleureCarte.Couleur == atout){
+                    if(this.belote){
+                        console.log("BELOTE !!!!!!!!!!!");
+                        this.belote=false;
+                    }
+                    else if(this.rebelote){
+                        console.log("REBELOTE !!!!!!!!!");
+                        this.rebelote=false;
+                    }
+                }
+            }
+
             console.log("Meilleure carte que je vais jouer :"+meilleureCarte.Valeur+" "+meilleureCarte.Couleur);
             addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+meilleureCarte.Valeur+meilleureCarte.Couleur+".png",this.nom+"joue");
             //console.log(this.nom+"c"+positionMeilleureCarte-nbTours);
@@ -735,6 +766,15 @@
             j2.cartes=[];
             j3.cartes=[];
             j4.cartes=[];
+            j1.belote=false;
+            j2.belote=false;
+            j3.belote=false;
+            j4.belote=false;
+            j1.rebelote=false;
+            j2.rebelote=false;
+            j3.rebelote=false;
+            j4.rebelote=false;
+
             if(j4.distribue){
                 j1.distribue=true;
                 document.getElementById("dealerJ1").style.visibility="visible";
@@ -776,6 +816,10 @@
             document.getElementById("mancheSuivante").style.visibility="hidden";
             document.getElementById("finPartie").style.visibility="visible";
         }
+        j1.beloteRebelote=false;
+        j2.beloteRebelote=false;
+        j3.beloteRebelote=false;
+        j4.beloteRebelote=false;
     }
 
     function finPartie(){
@@ -872,8 +916,16 @@
     }
 
     function scoreEquipes(){ //Calcul le score des équipes en temps réel
+        if(j1.beloteRebelote || j3.beloteRebelote){
+            j1.points +=10;
+            j3.points+=10;
+        }
+        else if(j2.beloteRebelote || j4.beloteRebelote){
+            j2.points +=10;
+            j4.points+=10;
+        }
         if(aPris=="j1" || aPris=="j3"){
-            if(j1.points + j3.points == 162){
+            if(j1.points + j3.points == 162 || j1.points + j3.points == 182){
                 scoreEq1 += 252
             }
             else if(j1.points + j3.points >= 81){
@@ -885,7 +937,7 @@
             }
         }
         else if(aPris=="j2" || aPris=="j4"){
-            if(j2.points + j4.points == 162){
+            if(j2.points + j4.points == 162 || j2.points + j4.points == 182){
                 scoreEq2 += 252
             }
             else if(j2.points + j4.points >= 81){
