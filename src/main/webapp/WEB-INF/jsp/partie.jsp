@@ -307,15 +307,18 @@
                }
                else if(i < 10){
                    j2.cartes.push(deck[i]);
-                   addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i+1-5));
+                   //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i+1-5));
+                   addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J2c"+String(i+1-5));
                }
                else if(i<15){
                    j3.cartes.push(deck[i]);
-                   addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i+1-10));
+                   //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i+1-10));
+                   addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J3c"+String(i+1-10));
                }
                else if(i<20){
                    j4.cartes.push(deck[i]);
-                   addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i+1-15));
+                   //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i+1-15));
+                   addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J4c"+String(i+1-15));
                }
                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J1joue");
            }
@@ -426,7 +429,8 @@
             if(prendre == 1){
                 atout=deck[20].Couleur; // Couleur de l'atout
                 addCards("","J1joue");
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+                //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
                 addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
                 aPris="j2";
                 joueur=j2;
@@ -434,7 +438,8 @@
                 for(var i = 21; i<deck.length; i++ ){
                     if(i<23){
                         joueur.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J2c" + String(i-14));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J2c" + String(i-14));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J2c"+String(i-14));
                     }
                     else if(i < 26){
                         j1.cartes.push(deck[i]);
@@ -442,11 +447,13 @@
                     }
                     else if(i<29){
                         j3.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J3c"+String(i-20));
                     }
                     else if(i<32){
                         j4.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J4c"+String(i-23));
                     }
                 }
             }
@@ -455,7 +462,8 @@
             if(prendre==1){
                 atout=deck[20].Couleur; // Couleur de l'atout
                 addCards("","J1joue");
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+                //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
                 addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
                 aPris="j3";
                 joueur=j3;
@@ -463,7 +471,8 @@
                 for(var i = 21; i<deck.length; i++ ){
                     if(i<23){
                         joueur.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J3c" + String(i-14));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J3c" + String(i-14));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J3c"+String(i-14));
                     }
                     else if(i < 26){
                         j1.cartes.push(deck[i]);
@@ -471,11 +480,13 @@
                     }
                     else if(i<29){
                         j2.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-20));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-20));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J2c"+String(i-20));
                     }
                     else if(i<32){
                         j4.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J4c"+String(i-23));
                     }
                 }
             }
@@ -484,7 +495,8 @@
             if(prendre == 1){
                 atout=deck[20].Couleur; // Couleur de l'atout
                 addCards("","J1joue");
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+                //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
                 addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
                 aPris="j4";
                 joueur=j4;
@@ -492,7 +504,8 @@
                 for(var i = 21; i<deck.length; i++ ){
                     if(i<23){
                         joueur.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J4c" + String(i-14));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J4c" + String(i-14));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J4c"+String(i-14));
                     }
                     else if(i < 26){
                         j1.cartes.push(deck[i]);
@@ -500,11 +513,13 @@
                     }
                     else if(i<29){
                         j3.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J3c"+String(i-20));
                     }
                     else if(i<32){
                         j2.cartes.push(deck[i]);
-                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-23));
+                        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-23));
+                        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J2c"+String(i-23));
                     }
                 }
             }
@@ -530,15 +545,18 @@
             }
             else if(i < 26){
                 j2.cartes.push(deck[i]);
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-17));
+                //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-17));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J2c"+String(i-17));
             }
             else if(i<29){
                 j3.cartes.push(deck[i]);
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J3c"+String(i-20));
             }
             else if(i<32){
                 j4.cartes.push(deck[i]);
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J4c"+String(i-23));
             }
         }
         jouerRobot();
@@ -553,7 +571,8 @@
 
         var nombre = Math.floor(Math.random() * Math.floor(3))+2;
         addCards("","J1joue");
-        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+        //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
+        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
 
         if(nombre==2){
             aPris="j2";
@@ -562,7 +581,8 @@
             for(var i = 21; i<deck.length; i++ ){
                 if(i<23){
                     joueur.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J2c" + String(i-14));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J2c" + String(i-14));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J2c" + String(i-14));
                 }
                 else if(i < 26){
                     j1.cartes.push(deck[i]);
@@ -570,11 +590,13 @@
                 }
                 else if(i<29){
                     j3.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J3c" + String(i-20));
                 }
                 else if(i<32){
                     j4.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J4c" + String(i-23));
                 }
             }
         }
@@ -585,7 +607,8 @@
             for(var i = 21; i<deck.length; i++ ){
                 if(i<23){
                     joueur.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J3c" + String(i-14));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J3c" + String(i-14));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J3c" + String(i-14));
                 }
                 else if(i < 26){
                     j1.cartes.push(deck[i]);
@@ -593,11 +616,13 @@
                 }
                 else if(i<29){
                     j2.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-20));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-20));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J2c" + String(i-20));
                 }
                 else if(i<32){
                     j4.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J4c"+String(i-23));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J4c" + String(i-23));
                 }
             }
         }
@@ -608,7 +633,8 @@
             for(var i = 21; i<deck.length; i++ ){
                 if(i<23){
                     joueur.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J4c" + String(i-14));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/" + deck[i].Valeur + deck[i].Couleur + ".png", "J4c" + String(i-14));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J4c" + String(i-14));
                 }
                 else if(i < 26){
                     j1.cartes.push(deck[i]);
@@ -616,11 +642,13 @@
                 }
                 else if(i<29){
                     j3.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J3c"+String(i-20));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J3c" + String(i-20));
                 }
                 else if(i<32){
                     j2.cartes.push(deck[i]);
-                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-23));
+                    //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[i].Valeur+deck[i].Couleur+".png","J2c"+String(i-23));
+                    addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png", "J2c" + String(i-23));
                 }
             }
         }
@@ -974,18 +1002,19 @@
     #dernierPliJ2{position : absolute; left:9.2%; top:40%;visibility:hidden;}
     #dernierPliJ3{position : absolute; left:13.4%; top:40%;visibility:hidden;}
     #dernierPliJ4{position : absolute; left:17.6%; top:40%;visibility:hidden;}
-    #texteJ1{position : absolute; left:6.5%; top:36%;visibility:hidden;}
-    #texteJ2{position : absolute; left:10.7%; top:36%;visibility:hidden;}
-    #texteJ3{position : absolute; left:14.9%; top:36%;visibility:hidden;}
-    #texteJ4{position : absolute; left:19.1%; top:36%;visibility:hidden;}
+    #texteJ1{position : absolute; left:6.5%; top:33%;visibility:hidden;}
+    #texteJ2{position : absolute; left:10.7%; top:33%;visibility:hidden;}
+    #texteJ3{position : absolute; left:14.9%; top:33%;visibility:hidden;}
+    #texteJ4{position : absolute; left:19.1%; top:33%;visibility:hidden;}
 
     #atout{position : absolute; left:10%; top:85%}
-    #texteAtout{position : absolute; left:10.7%; top:81%;}
-
+    #texteAtout{position : absolute; left:10%; top:78%;}
+    #distribuerButton{position : absolute; left:34%; top:48%; visibility: visible;}
     #prendreB{position : absolute; left:80%; top:86%}
     #pliSuivant{position : absolute; left:62%; top:48%}
-    #mancheSuivante{position : absolute; left:62%; top:58%}
-    #finPartie{position : absolute; left:50%; top:50%}
+    #finPartie{visibility: hidden}
+    #mancheSuivante{position : absolute; left:62%; top:48%}
+    #finPartie{position : absolute; left:45%; top:48%}
     #pasPrendreB{position : absolute; left:80%; top:92%}
     #dernierPliB{position : absolute; left:7.5%; top:53%}
     .styleBouton {
@@ -1021,24 +1050,41 @@
     }
     .cardJ1{height:12%; width:4%;}
 
-    #ScoreTotal{position : absolute; left:85.5%; top:7%}
-    #scoreE1T{position : absolute; left:80%; top:10%}
-    #scoreE2T{position : absolute; left:90%; top:10%}
-    #scoreJ1T{position : absolute; left:80%; top:12%}
-    #scoreJ3T{position : absolute; left:80%; top:14%}
-    #scoreJ2T{position : absolute; left:90%; top:12%}
-    #scoreJ4T{position : absolute; left:90%; top:14%}
+    p{
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        font-size: 24px;
+        letter-spacing: -0.4px;
+        word-spacing: 2px;
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        font-style: normal;
+        font-variant: small-caps;
+        text-transform: none;
+    }
 
-    #scoreE1{position : absolute; left:84%; top:10%}
-    #scoreE2{position : absolute; left:94%; top:10%}
-    #scoreJ1{position : absolute; left:84%; top:12%}
-    #scoreJ3{position : absolute; left:84%; top:14%}
-    #scoreJ2{position : absolute; left:94%; top:12%}
-    #scoreJ4{position : absolute; left:94%; top:14%}
+    #ScoreTotal{position : absolute; left:87%; top:0.2%; font-size: 30px;}
+    #scoreE1T{position : absolute; left:80%; top:5%}
+    #scoreE2T{position : absolute; left:90%; top:5%}
+    #scoreJ1T{position : absolute; left:80%; top:8%}
+    #scoreJ3T{position : absolute; left:80%; top:11%}
+    #scoreJ2T{position : absolute; left:90%; top:8%}
+    #scoreJ4T{position : absolute; left:90%; top:11%}
+
+    #scoreE1{position : absolute; left:85.5%; top:5%}
+    #scoreE2{position : absolute; left:95.5%; top:5%}
+    #scoreJ1{position : absolute; left:84%; top:8%}
+    #scoreJ3{position : absolute; left:84%; top:11%}
+    #scoreJ2{position : absolute; left:94%; top:8%}
+    #scoreJ4{position : absolute; left:94%; top:11%}
+
+    #j1Pseudo{position : absolute; left:50%; top:75%}
+    #j2Pseudo{position : absolute; left:35%; top:40%}
+    #j3Pseudo{position : absolute; left:50%; top:20%}
+    #j4Pseudo{position : absolute; left:63%; top:40%}
 
 
 </style>
-<p>Sympa le background</p>
 
 <p id="ScoreTotal">Score</p>
 <p id="scoreE1T">Equipe 1 : </p>
@@ -1053,6 +1099,11 @@
 <p id="scoreE2"></p>
 <p id="scoreJ2"></p>
 <p id="scoreJ4"></p>
+
+<p id="j1Pseudo">J1 : <%=session.getAttribute("pseudo")%></p>
+<p id="j2Pseudo">J2 : <%=session.getAttribute("J2")%></p>
+<p id="j3Pseudo">J3 : <%=session.getAttribute("J3")%></p>
+<p id="j4Pseudo">J4 : <%=session.getAttribute("J4")%></p>
 
 <img src="" class="cardJ1" id="J1c1" onclick="jouerCarte(this.id)">
 <img src="" class="cardJ1" id="J1c2" onclick="jouerCarte(this.id)">
@@ -1105,7 +1156,7 @@
 <p id="texteJ3">J3</p>
 <p id="texteJ4">J4</p>
 
-<button class="btn btn-outline-primary" id="distribuerButton" type="button" onclick="distribuer();">Distribuer les cartes</button>
+<button class="styleBouton" id="distribuerButton" type="button" onclick="distribuer();">Distribuer</button>
 
 <img src="gray_back.png" class="card" id="atout">
 <p id="texteAtout">ATOUT</p>
@@ -1122,7 +1173,7 @@
     <input type="hidden" name="gagnant2" id="gagnant2" value="testGagnant2">
     <input type="hidden" name="scoreEquipe1" id="scoreEquipe1" value="100">
     <input type="hidden" name="scoreEquipe2" id="scoreEquipe2" value="200">
-    <button form="form1" type="submit" value="Submit" id="finPartie" >TERMINER LA PARTIE</button>
+    <button class="styleBouton" form="form1" type="submit" value="Submit" id="finPartie" >TERMINER LA PARTIE</button>
 </form>
 
 
