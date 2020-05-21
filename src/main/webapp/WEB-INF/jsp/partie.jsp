@@ -11,6 +11,7 @@
     <title>Belote - Partie</title>
 </head>
 <body>
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/tapis.jpg" id="tapis"/>
 <!--JS -->
 <script>
     var couleur = ["S", "H", "D", "C"];
@@ -77,6 +78,21 @@
                     }
                     if (this.belote && this.rebelote) {
                         this.beloteRebelote = true;
+                        console.log("J'ai belote et rebelote");
+                    }
+                }
+            }
+
+            //Vérifie si j1 à belote et rebelote (Dame et roi d'atout)
+            for(var j=0; j<j1.cartes.length; j++){
+                if(!j1.beloteRebelote) {
+                    if (j1.cartes[j].Valeur == "Q" && j1.cartes[j].Couleur == atout) {
+                        j1.belote = true;
+                    } else if (j1.cartes[j].Valeur == "K" && j1.cartes[j].Couleur == atout) {
+                        j1.rebelote = true;
+                    }
+                    if (j1.belote && j1.rebelote) {
+                        j1.beloteRebelote = true;
                         console.log("J'ai belote et rebelote");
                     }
                 }
@@ -594,6 +610,20 @@
             }
         }
         jouerRobot();
+        //Vérifie si j1 à belote et rebelote (Dame et roi d'atout)
+        for(var j=0; j<j1.cartes.length; j++){
+            if(!j1.beloteRebelote) {
+                if (j1.cartes[j].Valeur == "Q" && j1.cartes[j].Couleur == atout) {
+                    j1.belote = true;
+                } else if (j1.cartes[j].Valeur == "K" && j1.cartes[j].Couleur == atout) {
+                    j1.rebelote = true;
+                }
+                if (j1.belote && j1.rebelote) {
+                    j1.beloteRebelote = true;
+                    console.log("J'ai belote et rebelote");
+                }
+            }
+        }
     }
 
     function prendrePasAtout(){
@@ -687,12 +717,51 @@
             }
         }
         jouerRobot();
+        //Vérifie si j1 à belote et rebelote (Dame et roi d'atout)
+        for(var j=0; j<j1.cartes.length; j++){
+            if(!j1.beloteRebelote) {
+                if (j1.cartes[j].Valeur == "Q" && j1.cartes[j].Couleur == atout) {
+                    j1.belote = true;
+                } else if (j1.cartes[j].Valeur == "K" && j1.cartes[j].Couleur == atout) {
+                    j1.rebelote = true;
+                }
+                if (j1.belote && j1.rebelote) {
+                    j1.beloteRebelote = true;
+                    console.log("J'ai belote et rebelote");
+                }
+            }
+        }
+    }
+
+    function belote(){
+        document.getElementById("beloteJ1").style.visibility="hidden";
+        document.getElementById("beloteRebelote").textContent="J1 : BELOTE !!!";
+    }
+
+    function rebelote(){
+        document.getElementById("rebeloteJ1").style.visibility="hidden";
+        document.getElementById("beloteRebelote").textContent="J1 : REBELOTE !!!";
     }
 
     function jouerCarte(carte){
         var nbCarte = carte.substring(3,4);
         j1.carteJouee = j1.cartes[nbCarte-1];
         //j1.joue();
+        //Si le J1 a belote et rebelote
+        if(j1.beloteRebelote){
+            if((j1.carteJouee.Valeur == "Q" || j1.carteJouee.Valeur == "K") && j1.carteJouee.Couleur == atout){
+                if(j1.belote){
+                    console.log("BELOTE !!!!!!!!!!!");
+                    document.getElementById("beloteJ1").style.visibility="visible";
+                    j1.belote=false;
+                }
+                else if(j1.rebelote){
+                    console.log("REBELOTE !!!!!!!!!");
+                    document.getElementById("rebeloteJ1").style.visibility="visible";
+                    j1.rebelote=false;
+                }
+            }
+        }
         addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+j1.cartes[nbCarte-1].Valeur+j1.cartes[nbCarte-1].Couleur+".png","J1joue");
         addCards("",carte);
         if(j1.premier){
@@ -1087,6 +1156,8 @@
     #mancheSuivante{position : absolute; left:62%; top:48%}
     #finPartie{position : absolute; left:45%; top:48%}
     #pasPrendreB{position : absolute; left:80%; top:92%}
+    #beloteJ1{position : absolute; left:80%; top:86%}
+    #rebeloteJ1{position : absolute; left:80%; top:86%}
     #dernierPliB{position : absolute; left:7.5%; top:53%}
     .styleBouton {
         box-shadow: 0px 0px 0px 2px #9fb4f2;
@@ -1154,12 +1225,14 @@
     #j3Pseudo{position : absolute; left:50%; top:20%}
     #j4Pseudo{position : absolute; left:63%; top:40%}
 
-    #beloteRebelote{position : absolute; left:92%; top:48%}
+    #beloteRebelote{position : absolute; left:85%; top:48%}
 
     #dealerJ1{position : absolute; left:45%; top:75%; width: 4%; height: 8%; visibility: hidden}
     #dealerJ2{position : absolute; left:35%; top:35%; width: 4%; height: 8%; visibility: hidden}
     #dealerJ3{position : absolute; left:45%; top:20%; width: 4%; height: 8%; visibility: hidden}
     #dealerJ4{position : absolute; left:63%; top:35%; width: 4%; height: 8%; visibility: visible}
+
+    #tapis{position: absolute; left:23.6%; top:0%; width: 56%; height: 100%;}
 
 
 </style>
@@ -1250,6 +1323,9 @@
 
 <button class="styleBouton"  id="prendreB" type="button" hidden onclick="prendreAtout();">Prendre atout</button>
 <button class="styleBouton"  id="pasPrendreB" type="button"onclick="prendrePasAtout();">Ne pas prendre atout</button>
+
+<button class="styleBouton"  id="beloteJ1" type="button" hidden onclick="belote();">Belote</button>
+<button class="styleBouton"  id="rebeloteJ1" type="button"onclick="rebelote();">Rebelote</button>
 
 <button class="styleBouton"  id="pliSuivant" type="button" hidden onclick="pliSuivant();">Pli suivant</button>
 <button class="styleBouton"  id="mancheSuivante" type="button" hidden onclick="mancheSuivante();">Manche suivante</button>
