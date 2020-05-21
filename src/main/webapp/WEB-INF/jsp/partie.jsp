@@ -1093,7 +1093,7 @@
 </script>
 <!-- CSS-->
 <!--<style>body{background-color:steelblue;}</style> fond bleu -->
-<style>body{background:url("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/bois.png");}</style>
+<style>body{background:url("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/bois2.png");}</style>
 <style>
     body{height:100%;width:100%;background-color: lightblue;}
     .card{height:12%; width:4%;}
@@ -1198,7 +1198,7 @@
         font-size: 24px;
         letter-spacing: -0.4px;
         word-spacing: 2px;
-        color: #000000;
+        color: #ffffff;
         font-weight: 400;
         text-decoration: none;
         font-style: normal;

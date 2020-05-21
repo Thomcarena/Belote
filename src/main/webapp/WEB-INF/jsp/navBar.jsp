@@ -17,13 +17,13 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/accueilBelote">Accueil</a>
+                <a class="nav-link" style="color: #f5f7f9" href="/accueilBelote">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/formModifierJoueur">Mon Compte : <%= session.getAttribute("pseudo")%></a>
+                <a class="nav-link" style="color: #f5f7f9" href="/formModifierJoueur">Mon Compte : <%= session.getAttribute("pseudo")%></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/statistiques">Statistiques</a>
+                <a class="nav-link" style="color: #f5f7f9" href="/statistiques">Statistiques</a>
             </li>
         </ul>
     </nav>

@@ -94,10 +94,10 @@ public class PartieController {
         partie.setScoreEq1Final(Integer.parseInt(score1));
         partie.setScoreEq2Final(Integer.parseInt(score2));
 
-        long scoreMoyen1 =(j1.getScoreMoyenJ()*j1.getNbPartieJ()+Integer.parseInt(score1))/(j1.getNbPartieJ()+1);
-        long scoreMoyen2 =(j2.getScoreMoyenJ()*j2.getNbPartieJ()+Integer.parseInt(score2))/(j2.getNbPartieJ()+1);
-        long scoreMoyen3 =(j3.getScoreMoyenJ()*j3.getNbPartieJ()+Integer.parseInt(score1))/(j3.getNbPartieJ()+1);
-        long scoreMoyen4 =(j4.getScoreMoyenJ()*j4.getNbPartieJ()+Integer.parseInt(score2))/(j4.getNbPartieJ()+1);
+        long scoreMoyen1 =(j1.getScoreMoyenJ()*j1.getNbPartieJ()+Integer.parseInt(score1))/(j1.getNbPartieJ());
+        long scoreMoyen2 =(j2.getScoreMoyenJ()*j2.getNbPartieJ()+Integer.parseInt(score2))/(j2.getNbPartieJ());
+        long scoreMoyen3 =(j3.getScoreMoyenJ()*j3.getNbPartieJ()+Integer.parseInt(score1))/(j3.getNbPartieJ());
+        long scoreMoyen4 =(j4.getScoreMoyenJ()*j4.getNbPartieJ()+Integer.parseInt(score2))/(j4.getNbPartieJ());
 
         j1.setScoreMoyenJ(scoreMoyen1);
         j2.setScoreMoyenJ(scoreMoyen2);
