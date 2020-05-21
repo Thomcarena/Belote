@@ -1080,13 +1080,13 @@
             document.getElementById("dernierPliB").innerHTML = "Cacher le dernier pli";
             isDernierPliCache=false;
         }
-        else{
-            for(var i = 1; i<=4; i++ ){
-                document.getElementById("dernierPliJ"+String(i)).style.visibility="hidden";
-                document.getElementById("texteJ"+String(i)).style.visibility="hidden";
+        else {
+            for (var i = 1; i <= 4; i++) {
+                document.getElementById("dernierPliJ" + String(i)).style.visibility = "hidden";
+                document.getElementById("texteJ" + String(i)).style.visibility = "hidden";
             }
             document.getElementById("dernierPliB").innerHTML = "Voir le dernier pli";
-            isDernierPliCache=true;
+            isDernierPliCache = true;
         }
     }
 
