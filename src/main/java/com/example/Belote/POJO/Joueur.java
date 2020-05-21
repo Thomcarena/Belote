@@ -28,7 +28,7 @@ public class Joueur {
     String villeJ;
     int nbPartieJ;
     int nbVictoireJ;
-    long nbMoyenneJ;
+    double nbMoyenneJ;
     long scoreMoyenJ;
     @OneToMany(mappedBy="joueur")
     private List<Carte> cartes;
@@ -128,11 +128,11 @@ public class Joueur {
         this.nbVictoireJ = nbVictoireJ;
     }
 
-    public long getNbMoyenneJ() {
+    public double getNbMoyenneJ() {
         return nbMoyenneJ;
     }
 
-    public void setNbMoyenneJ(long nbMoyenneJ) {
+    public void setNbMoyenneJ(double nbMoyenneJ) {
         this.nbMoyenneJ = nbMoyenneJ;
     }
 

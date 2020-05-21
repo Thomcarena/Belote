@@ -78,10 +78,10 @@ public class PartieController {
         }
 
         //Modifier le pourcentage de victoires
-        j1.setNbMoyenneJ(j1.getNbVictoireJ()/j1.getNbPartieJ());
-        j2.setNbMoyenneJ(j2.getNbVictoireJ()/j2.getNbPartieJ());
-        j3.setNbMoyenneJ(j3.getNbVictoireJ()/j3.getNbPartieJ());
-        j4.setNbMoyenneJ(j4.getNbVictoireJ()/j4.getNbPartieJ());
+        j1.setNbMoyenneJ((double)j1.getNbVictoireJ()/(double)j1.getNbPartieJ());
+        j2.setNbMoyenneJ((double)j2.getNbVictoireJ()/(double)j2.getNbPartieJ());
+        j3.setNbMoyenneJ((double)j3.getNbVictoireJ()/(double)j3.getNbPartieJ());
+        j4.setNbMoyenneJ((double)j4.getNbVictoireJ()/(double)j4.getNbPartieJ());
 
 
 
@@ -109,6 +109,7 @@ public class PartieController {
         joueurRepository.save(j3);
         joueurRepository.save(j4);
         partieRepository.save(partie);
+        System.out.println("% victoire :"+j1.getNbMoyenneJ());
         System.out.println("Pseudo du J1 : "+j1.getPseudoJ());
         System.out.println("Gagnant numéro 1 : "+gagnant1);
         System.out.println("Nombre partie du j1 :"+j1.getNbPartieJ());

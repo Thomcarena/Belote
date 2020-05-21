@@ -430,7 +430,7 @@
                 atout=deck[20].Couleur; // Couleur de l'atout
                 addCards("","J1joue");
                 //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/red_back.png","J"+nombre+"c" + String(6));
                 addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
                 aPris="j2";
                 joueur=j2;
@@ -463,7 +463,7 @@
                 atout=deck[20].Couleur; // Couleur de l'atout
                 addCards("","J1joue");
                 //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/red_back.png","J"+nombre+"c" + String(6));
                 addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
                 aPris="j3";
                 joueur=j3;
@@ -496,7 +496,7 @@
                 atout=deck[20].Couleur; // Couleur de l'atout
                 addCards("","J1joue");
                 //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
-                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
+                addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/red_back.png","J"+nombre+"c" + String(6));
                 addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","atout"); // Ajoute la carte de l'atout
                 aPris="j4";
                 joueur=j4;
@@ -572,7 +572,7 @@
         var nombre = Math.floor(Math.random() * Math.floor(3))+2;
         addCards("","J1joue");
         //addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/"+deck[20].Valeur+deck[20].Couleur+".png","J"+nombre+"c" + String(6));
-        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/gray_back.png","J"+nombre+"c" + String(6));
+        addCards("https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/red_back.png","J"+nombre+"c" + String(6));
 
         if(nombre==2){
             aPris="j2";
@@ -737,21 +737,29 @@
             j4.cartes=[];
             if(j4.distribue){
                 j1.distribue=true;
+                document.getElementById("dealerJ1").style.visibility="visible";
+                document.getElementById("dealerJ4").style.visibility="hidden";
                 j4.distribue=false;
                 j2.premier=true;
             }
             else if(j3.distribue){
                 j4.distribue=true;
+                document.getElementById("dealerJ4").style.visibility="visible";
+                document.getElementById("dealerJ3").style.visibility="hidden";
                 j3.distribue=false;
                 j1.premier=true;
             }
             else if(j2.distribue){
                 j3.distribue=true;
+                document.getElementById("dealerJ3").style.visibility="visible";
+                document.getElementById("dealerJ2").style.visibility="hidden";
                 j2.distribue=false;
                 j4.premier=true;
             }
             else if(j1.distribue){
                 j2.distribue=true;
+                document.getElementById("dealerJ2").style.visibility="visible";
+                document.getElementById("dealerJ1").style.visibility="hidden";
                 j1.distribue=false;
                 j3.premier=true;
             }
@@ -1007,7 +1015,8 @@
     #texteJ3{position : absolute; left:14.9%; top:33%;visibility:hidden;}
     #texteJ4{position : absolute; left:19.1%; top:33%;visibility:hidden;}
 
-    #atout{position : absolute; left:10%; top:85%}
+    #atout{position : absolute; left:8%; top:85%}
+    #atoutDos{position : absolute; left:12%; top:85%}
     #texteAtout{position : absolute; left:10%; top:78%;}
     #distribuerButton{position : absolute; left:34%; top:48%; visibility: visible;}
     #prendreB{position : absolute; left:80%; top:86%}
@@ -1083,6 +1092,11 @@
     #j3Pseudo{position : absolute; left:50%; top:20%}
     #j4Pseudo{position : absolute; left:63%; top:40%}
 
+    #dealerJ1{position : absolute; left:45%; top:75%; width: 4%; height: 8%; visibility: hidden}
+    #dealerJ2{position : absolute; left:35%; top:35%; width: 4%; height: 8%; visibility: hidden}
+    #dealerJ3{position : absolute; left:45%; top:20%; width: 4%; height: 8%; visibility: hidden}
+    #dealerJ4{position : absolute; left:63%; top:35%; width: 4%; height: 8%; visibility: visible}
+
 
 </style>
 
@@ -1104,6 +1118,11 @@
 <p id="j2Pseudo">J2 : <%=session.getAttribute("J2")%></p>
 <p id="j3Pseudo">J3 : <%=session.getAttribute("J3")%></p>
 <p id="j4Pseudo">J4 : <%=session.getAttribute("J4")%></p>
+
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/dealer.png" id="dealerJ1" >
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/dealer.png" id="dealerJ2" >
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/dealer.png" id="dealerJ3" >
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/dealer.png" id="dealerJ4">
 
 <img src="" class="cardJ1" id="J1c1" onclick="jouerCarte(this.id)">
 <img src="" class="cardJ1" id="J1c2" onclick="jouerCarte(this.id)">
@@ -1158,7 +1177,8 @@
 
 <button class="styleBouton" id="distribuerButton" type="button" onclick="distribuer();">Distribuer</button>
 
-<img src="gray_back.png" class="card" id="atout">
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/red_back.png" class="card" id="atout">
+<img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/red_back.png" class="card" id="atoutDos">
 <p id="texteAtout">ATOUT</p>
 
 <button class="styleBouton"  id="prendreB" type="button" hidden onclick="prendreAtout();">Prendre atout</button>

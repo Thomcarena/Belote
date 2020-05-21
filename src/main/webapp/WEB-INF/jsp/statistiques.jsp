@@ -20,23 +20,23 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th scope="col">Pseudo</th>
-        <th scope="col">nb Partie Jouées</th>
-        <th scope="col">nb Victoires</th>
-        <th scope="col">nb Moyen Victoires</th>
-        <th scope="col">Score Moyen</th>
+        <th scope="col" class="text-center">Pseudo</th>
+        <th scope="col" class="text-center">Nombre de Partie Jouées</th>
+        <th scope="col" class="text-center">Nombre de Victoires</th>
+        <th scope="col" class="text-center">Pourcentage de Victoire</th>
+        <th scope="col" class="text-center">Score Moyen</th>
     </tr>
     </thead>
     <tbody>
     <% List<Joueur> joueurs = (List<Joueur>) request.getAttribute("listeJoueurs");
         for(int i =0; i < joueurs.size(); i++){
-            out.print("<tr><th scope=\"row\">");
+            out.print("<tr><th scope=\"row\"class=\"text-center\">");
             out.print(joueurs.get(i).getPseudoJ());
             out.print("</th>");
-            out.print("<td>"+joueurs.get(i).getNbPartieJ()+"</td>");
-            out.print("<td>"+joueurs.get(i).getNbVictoireJ()+"</td>");
-            out.print("<td>"+joueurs.get(i).getNbMoyenneJ()+"</td>");
-            out.print("<td>"+joueurs.get(i).getScoreMoyenJ()+"</td>");
+            out.print("<td align=\"center\">"+joueurs.get(i).getNbPartieJ()+"</td>");
+            out.print("<td align=\"center\">"+joueurs.get(i).getNbVictoireJ()+"</td>");
+            out.print("<td align=\"center\">"+(joueurs.get(i).getNbMoyenneJ())*100+" %</td>");
+            out.print("<td align=\"center\">"+joueurs.get(i).getScoreMoyenJ()+"</td>");
             out.print("</tr>");
         }%>
     </tbody>
