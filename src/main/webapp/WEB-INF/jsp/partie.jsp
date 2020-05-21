@@ -69,15 +69,16 @@
 
             //Vérifie si un joueur à belote et rebelote (Dame et roi d'atout)
             for(var j=0; j<this.cartes.length; j++){
-                if(this.cartes[j].Valeur == "Q" && this.cartes[j].Couleur == atout){
-                    this.belote=true;
-                }
-                else if(this.cartes[j].Valeur == "K" && this.cartes[j].Couleur == atout){
-                    this.rebelote=true;
-                }
-                if(this.belote && this.rebelote){
-                    this.beloteRebelote=true;
-                    window.alert("J'ai belote et rebelote");
+                if(!this.beloteRebelote) {
+                    if (this.cartes[j].Valeur == "Q" && this.cartes[j].Couleur == atout) {
+                        this.belote = true;
+                    } else if (this.cartes[j].Valeur == "K" && this.cartes[j].Couleur == atout) {
+                        this.rebelote = true;
+                    }
+                    if (this.belote && this.rebelote) {
+                        this.beloteRebelote = true;
+                        console.log("J'ai belote et rebelote");
+                    }
                 }
             }
 
@@ -178,10 +179,12 @@
                 if((meilleureCarte.Valeur == "Q" || meilleureCarte.Valeur == "K") && meilleureCarte.Couleur == atout){
                     if(this.belote){
                         console.log("BELOTE !!!!!!!!!!!");
+                        document.getElementById("beloteRebelote").textContent=this.nom+" : BELOTE !!!";
                         this.belote=false;
                     }
                     else if(this.rebelote){
                         console.log("REBELOTE !!!!!!!!!");
+                        document.getElementById("beloteRebelote").textContent=this.nom+" : REBELOTE !!!";
                         this.rebelote=false;
                     }
                 }
@@ -728,6 +731,7 @@
 
     function pliSuivant(){
         compteurPli++;
+        document.getElementById("beloteRebelote").textContent="";
         if(compteurPli<8){
             addDernierPli(); //ajoute le dernier pli en mémoire
             addCards("","J1joue");
@@ -934,6 +938,9 @@
             }
             else if(j1.points + j3.points < 81) {
                 scoreEq2 += 162;
+                if(j1.beloteRebelote || j3.beloteRebelote){
+                    scoreEq1 +=20;
+                }
             }
         }
         else if(aPris=="j2" || aPris=="j4"){
@@ -946,6 +953,9 @@
             }
             else if(j2.points + j4.points < 81) {
                 scoreEq1 += 162;
+                if(j2.beloteRebelote || j4.beloteRebelote){
+                    scoreEq2 +=20;
+                }
             }
         }
     }
@@ -1144,6 +1154,8 @@
     #j3Pseudo{position : absolute; left:50%; top:20%}
     #j4Pseudo{position : absolute; left:63%; top:40%}
 
+    #beloteRebelote{position : absolute; left:92%; top:48%}
+
     #dealerJ1{position : absolute; left:45%; top:75%; width: 4%; height: 8%; visibility: hidden}
     #dealerJ2{position : absolute; left:35%; top:35%; width: 4%; height: 8%; visibility: hidden}
     #dealerJ3{position : absolute; left:45%; top:20%; width: 4%; height: 8%; visibility: hidden}
@@ -1170,6 +1182,9 @@
 <p id="j2Pseudo">J2 : <%=session.getAttribute("J2")%></p>
 <p id="j3Pseudo">J3 : <%=session.getAttribute("J3")%></p>
 <p id="j4Pseudo">J4 : <%=session.getAttribute("J4")%></p>
+
+<p id="beloteRebelote"></p>
+
 
 <img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/dealer.png" id="dealerJ1" >
 <img src="https://raw.githubusercontent.com/Thomcarena/Belote/master/src/main/medias/dealer.png" id="dealerJ2" >
