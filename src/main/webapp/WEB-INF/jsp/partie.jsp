@@ -998,7 +998,10 @@
             j4.points+=10;
         }
         if(aPris=="j1" || aPris=="j3"){
-            if(j1.points + j3.points == 162 || j1.points + j3.points == 182){
+            if(j1.points + j3.points == 182){
+                scoreEq1+=272;
+            }
+            else if(j1.points + j3.points == 162){
                 scoreEq1 += 252
             }
             else if(j1.points + j3.points >= 81){
@@ -1013,7 +1016,10 @@
             }
         }
         else if(aPris=="j2" || aPris=="j4"){
-            if(j2.points + j4.points == 162 || j2.points + j4.points == 182){
+            if(j2.points + j4.points == 182){
+                scoreEq2+=272;
+            }
+            else if(j2.points + j4.points == 162){
                 scoreEq2 += 252
             }
             else if(j2.points + j4.points >= 81){
